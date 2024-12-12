@@ -1,0 +1,11 @@
+<h1>Lista de Automóveis</h1>
+<a href="{% url 'automovel-create' %}">Adicionar Automóvel</a>
+<ul>
+    {% for automovel in automovel-list %}
+        <li>{{ automovel.modelo }} - R$ {{ automovel.preco }}
+            ({{ automovel.marca.nome }}, {{ automovel.categoria.nome }})
+            <a href="{% url 'automovel-update' automovel.id %}">Editar</a>
+            <a href="{% url 'automovel-delete' automovel.id %}">Deletar</a>
+        </li>
+    {% endfor %}
+</ul>
